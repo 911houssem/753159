@@ -10,6 +10,16 @@ The model and coding-agent source are located in:
 
 The coding agent is in the `coding_agent/` subdirectory. See its `AGENT_README.md` for usage and setup instructions.
 
+## Restore the tokenizer
+
+To keep the repository transfer manageable, the original `tokenizer.json` is stored as 13 text chunks. Before running the agent or model verification, execute this from the model directory:
+
+```bash
+python coding_agent/restore_tokenizer.py
+```
+
+The script verifies the reconstructed file against the original SHA-256 hash before writing it. GitHub Actions runs this restoration step before tests.
+
 ## Important
 
 - Model weights are not included in this Git repository. Download the original weights from the official Qwen Hugging Face repository.
